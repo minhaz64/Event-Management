@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "inter", "San-serif";
+      }
+    </style>
+  </head>
+
+  <body class="relative min-h-screen">
+    <div class="bg-gray-600">
+      <!-- background image  -->
+      <!-- <div class="fixed inset-0 backdrop-blur-sm -z-10 pointer-events-none"></div>
+      <div class="relative"> -->
+        <header>
+          <nav class="relative top-0 left-0 w-full bg-white/[0.4] p-2 text-white font-bold backdrop-blur-md z-50">
+            <div class="grid grid-cols-5 max-w-[1400px] mx-auto pt-2">
+              <div class="md:col-span-2 lg:col-span-3">
+                <img class="w-12 h-12 rounded-full drop-shadow-xl" src="images/LOGO.png" alt=""/>
+              </div>
+              <div class="flex justify-end items-center gap-4 md:col-span-3 lg:col-span-2">
+                <span class="drop-shadow-lg hover:text-cyan-400">Home</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Events</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Categories</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Dashboard</span>
+                <button class="p-2 bg-blue-600 rounded-xl text-white">Sign in</button>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <main class="container max-w-[1400px] mx-auto px-10 py-8 my-10">
+          <!-- Filter Section -->
+          <div class="bg-slate-100 shadow-lg rounded-xl p-6 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Filter Events</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <!-- Category Filter -->
+              <div class="flex items-center gap-2">
+                <label for="category" class="font-medium">Category:</label>
+                <select id="category" class="border-2 border-gray-300 rounded-lg p-2 flex-1">
+                  <option value="">All Categories</option>
+                  <option value="music">Music</option>
+                  <option value="sports">Sports</option>
+                  <option value="tech">Tech</option>
+                </select>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" >
+                  Filter
+                </button>
+              </div>
+    
+              <!-- Start Date -->
+              <div class="flex items-center gap-2">
+                <label for="start_date" class="font-medium">Start:</label>
+                <input class="border-2 border-gray-300 rounded-lg p-2 flex-1" type="date" id="start_date"/>
+              </div>
+    
+              <!-- End Date + Filter Button -->
+              <div class="flex items-center gap-2">
+                <label for="end_date" class="font-medium">End:</label>
+                <input class="border-2 border-gray-300 rounded-lg p-2 flex-1" type="date" id="end_date"/>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" >
+                  Filter
+                </button>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Events grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Event card -->
+            <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+              <img
+                src="images/defaultImage.jpg"
+                alt=""
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Music Festival</h3>
+                <p class="text-sm text-gray-500 mb-1">Category: Music</p>
+                <p class="text-sm text-gray-500 mb-3">Date: 15 Aug 2025</p>
+                <a href="#" class="text-cyan-500 hover:underline">View Details</a>
+              </div>
+            </div>
+    
+            <!-- Example card-->
+            <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+              <img
+                src="images/defaultImage.jpg"
+                alt=""
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                  Tech Conference
+                </h3>
+                <p class="text-sm text-gray-500 mb-1">Category: Tech</p>
+                <p class="text-sm text-gray-500 mb-3">Date: 21 Aug 2025</p>
+                <a href="#" class="text-cyan-500 hover:underline">View Details</a>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- footer section  -->
+        <footer class="bg-gray-900 text-white py-8">
+          <div class="max-w-6xl mx-auto px-4 grid grid-rows-3 gap-6">
+            <div class="flex flex-wrap gap-6 justify-center">
+              <a href="#" class="hover:underline">About</a>
+              <a href="#" class="hover:underline">Blogs</a>
+              <a href="#" class="hover:underline">Events</a>
+              <a href="#" class="hover:underline">Contact</a>
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-center">
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-x-twitter"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-linkedin"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-github"></i
+              ></a>
+            </div>
+
+            <div class="flex justify-center items-center">
+              <p class="text-sm text-gray-400">
+                <i class="fa-solid fa-copyright"></i> 2025 Event Management. All
+                rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

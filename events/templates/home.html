@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "inter", "San-serif";
+      }
+    </style>
+  </head>
+
+  <body class="relative min-h-screen">
+    <!-- bg image  -->
+    <div class="background-wrapper bg-[url('images/images2.png')] bg-cover bg-center bg-no-repeat bg-fixed min-h-screen">
+      <!-- background image moification -->
+      <div class="fixed inset-0 backdrop-blur-sm -z-10 pointer-events-none"></div>
+      <div class="relative">
+        <header>
+          <nav class="fixed top-0 left-0 w-full bg-white/[0.6] p-2 text-white font-bold backdrop-blur-md z-50">
+            <div class="grid grid-cols-5 max-w-[1400px] mx-auto pt-2">
+              <!-- LOGO left allign-->
+              <div class="md:col-span-2 lg:col-span-3">
+                <div>
+                  <img class="w-12 h-12 rounded-full drop-shadow-xl" src="images/LOGO.png" alt=""/>
+                </div>
+              </div>
+              <!-- right alligned -->
+              <div
+                class="flex justify-end items-center gap-4 md:col-span-3 lg:col-span-2">
+                <!-- other page buttons -->
+                <span class="drop-shadow-lg hover:text-cyan-400">Home</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Events</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Categories</span>
+                <span class="drop-shadow-lg hover:text-cyan-400">Dashboard</span>
+                <!-- signup / profile -->
+                <div>
+                  <button class="p-2 bg-blue-600 rounded-xl text-white">Sign in</button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <main>
+          <!-- hero section  -->
+          <div class="max-w-[1400px] mx-auto mb-6 pt-80">
+            <!-- hero section texts -->
+            <div class="">
+              <div class="grid grid-rows-3 items-center justify-center text-center">
+                <div class="text-white text-6xl font-extralight tracking-widest">
+                  One Stop
+                </div>
+                <div class="text-white text-6xl font-bold">Event Manager</div>
+                <div class="text-white tracking-widest">
+                  EVERY EVENT SHOULD BE PERFECT
+                </div>
+              </div>
+            </div>
+
+            <!-- serach bar  -->
+            <div class="flex justify-center mt-25 mb-20">
+              <div
+                class="flex items-center justify-center p-2 w-2/3 bg-white/[0.3] rounded-full drop-shadow-lg gap-1">
+                <input
+                  class="border-4 border-white rounded-full w-full p-3 placeholder:italic placeholder:text-xl placeholder:text-slate-300 focus:outline-none focus:border-cyan-400 font-medium"
+                  placeholder="Type something"
+                  type="text"/>
+
+                <button
+                  class="p-3 bg-cyan-400 rounded-full text-white border-4 border-cyan-400 hover:border-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="3"
+                    stroke="currentColor"
+                    class="size-7">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- event sections -->
+            <div class="bg-slate-200 rounded-xl px-6 pt-6 pb-2 mx-4">
+              <!-- event card -->
+              <div class="bg-slate-100 p-2 rounded-lg drop-shadow-xl mb-6">
+                <div class="grid grid-cols-5 pr-4 gap-3">
+                  <!-- image  -->
+                  <div class="col-span-2">
+                    <div class="h-60 rounded-lg shadow flex justify-center">
+                      <img
+                        class="h-auto rounded-lg"
+                        src="images/defaultImage.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-span-3">
+                    <div class="flex justify-between items-center py-4">
+                      <div class="text-xl font-medium">Title of Event1</div>
+                      <div>
+                        <span class="bg-cyan-200 p-2 rounded-lg font-medium"
+                          >10-10-2025</span
+                        >
+                      </div>
+                    </div>
+                    <hr />
+                    <div>
+                      <p class="h-30">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nobis tempora error molestias sunt. Similique, adipisci
+                        excepturi ullam, autem fuga aliquid eligendi ad labore
+                        sapiente vel, mollitia necessitatibus. Similique, sint
+                        officia?
+                      </p>
+
+                      <div class="flex items-center justify-between py-2">
+                        <div class="bg-slate-200 rounded-lg shadow-lg">
+                          <div class="flex gap-2 p-2">
+                            <div>Total Participants:</div>
+                            <div>8</div>
+                          </div>
+                        </div>
+                        <button class="bg-cyan-300 py-2 px-2 rounded-lg shadow-lg hover:bg-cyan-400">
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- event card -->
+              <div class="bg-slate-100 p-2 rounded-lg drop-shadow-xl mb-6">
+                <div class="grid grid-cols-5 pr-4 gap-3">
+                  <!-- image  -->
+                  <div class="col-span-2">
+                    <div class="h-60 rounded-lg shadow flex justify-center">
+                      <img
+                        class="h-auto rounded-lg"
+                        src="images/defaultImage.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-span-3">
+                    <div class="flex justify-between items-center py-4">
+                      <div class="text-xl font-medium">Title of Event1</div>
+                      <div>
+                        <span class="bg-cyan-200 p-2 rounded-lg font-medium"
+                          >10-10-2025</span
+                        >
+                      </div>
+                    </div>
+                    <hr />
+                    <div>
+                      <p class="h-30">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nobis tempora error molestias sunt. Similique, adipisci
+                        excepturi ullam, autem fuga aliquid eligendi ad labore
+                        sapiente vel, mollitia necessitatibus. Similique, sint
+                        officia?
+                      </p>
+
+                      <div class="flex items-center justify-between py-2">
+                        <div class="bg-slate-200 rounded-lg shadow-lg">
+                          <div class="flex gap-2 p-2">
+                            <div>Total Participants:</div>
+                            <div>8</div>
+                          </div>
+                        </div>
+                        <button class="bg-cyan-300 py-2 px-2 rounded-lg shadow-lg hover:bg-cyan-400">
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- event card -->
+              <div class="bg-slate-100 p-2 rounded-lg drop-shadow-xl mb-6">
+                <div class="grid grid-cols-5 pr-4 gap-3">
+                  <!-- image  -->
+                  <div class="col-span-2">
+                    <div class="h-60 rounded-lg shadow flex justify-center">
+                      <img
+                        class="h-auto rounded-lg"
+                        src="images/defaultImage.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-span-3">
+                    <div class="flex justify-between items-center py-4">
+                      <div class="text-xl font-medium">Title of Event1</div>
+                      <div>
+                        <span class="bg-cyan-200 p-2 rounded-lg font-medium"
+                          >10-10-2025</span
+                        >
+                      </div>
+                    </div>
+                    <hr />
+                    <div>
+                      <p class="h-30">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nobis tempora error molestias sunt. Similique, adipisci
+                        excepturi ullam, autem fuga aliquid eligendi ad labore
+                        sapiente vel, mollitia necessitatibus. Similique, sint
+                        officia?
+                      </p>
+
+                      <div class="flex items-center justify-between py-2">
+                        <div class="bg-slate-200 rounded-lg shadow-lg">
+                          <div class="flex gap-2 p-2">
+                            <div>Total Participants:</div>
+                            <div>8</div>
+                          </div>
+                        </div>
+                        <button
+                          class="bg-cyan-300 py-2 px-2 rounded-lg shadow-lg hover:bg-cyan-400"
+                        >
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- event card -->
+              <div class=" bg-slate-100 p-2 rounded-lg drop-shadow-xl mb-6">
+                <div class="grid grid-cols-5 pr-4 gap-3">
+                  <!-- image  -->
+                  <div class="col-span-2">
+                    <div class="h-60 rounded-lg shadow flex justify-center">
+                      <img
+                        class="h-auto rounded-lg"
+                        src="images/defaultImage.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-span-3">
+                    <div class="flex justify-between items-center py-4">
+                      <div class="text-xl font-medium">Title of Event1</div>
+                      <div>
+                        <span class="bg-cyan-200 p-2 rounded-lg font-medium"
+                          >10-10-2025</span
+                        >
+                      </div>
+                    </div>
+                    <hr />
+                    <div>
+                      <p class="h-30">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nobis tempora error molestias sunt. Similique, adipisci
+                        excepturi ullam, autem fuga aliquid eligendi ad labore
+                        sapiente vel, mollitia necessitatibus. Similique, sint
+                        officia?
+                      </p>
+
+                      <div class="flex items-center justify-between py-2">
+                        <div class="bg-slate-200 rounded-lg shadow-lg">
+                          <div class="flex gap-2 p-2">
+                            <div>Total Participants:</div>
+                            <div>8</div>
+                          </div>
+                        </div>
+                        <button
+                          class="bg-cyan-300 py-2 px-2 rounded-lg shadow-lg hover:bg-cyan-400"
+                        >
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- footer section  -->
+        <footer class="bg-gray-900 text-white py-8">
+          <div class="max-w-6xl mx-auto px-4 grid grid-rows-3 gap-6">
+            <div class="flex flex-wrap gap-6 justify-center">
+              <a href="#" class="hover:underline">About</a>
+              <a href="#" class="hover:underline">Blogs</a>
+              <a href="#" class="hover:underline">Events</a>
+              <a href="#" class="hover:underline">Contact</a>
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-center">
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-x-twitter"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-linkedin"></i
+              ></a>
+              <a href="#" class="hover:underline"
+                ><i class="text-2xl fa-brands fa-github"></i
+              ></a>
+            </div>
+
+            <div class="flex justify-center items-center">
+              <p class="text-sm text-gray-400">
+                <i class="fa-solid fa-copyright"></i> 2025 Event Management. All
+                rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

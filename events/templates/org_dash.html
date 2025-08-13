@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizer Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "inter", "San-serif";
+      }
+    </style>
+  </head>
+
+  <body class="relative min-h-screen">
+    <div class="min-h-screen bg-gray-600">
+      <!-- background image  -->
+      <!-- <div class="fixed inset-0 backdrop-blur-sm -z-10 pointer-events-none"></div>
+      <div class="relative"> -->
+      <header>
+        <nav class="relative top-0 left-0 w-full bg-white/[0.4] p-2 text-white font-bold backdrop-blur-md z-50">
+          <div class="grid grid-cols-5 max-w-[1400px] mx-auto pt-2">
+            <div class="col-span-1 md:col-span-2 lg:col-span-3">
+              <img class="w-12 h-12 rounded-full drop-shadow-xl" src="images/LOGO.png" alt=""/>
+            </div>
+            <div class="flex justify-end items-center gap-4 col-span-4 md:col-span-3 lg:col-span-2">
+              <span class="drop-shadow-lg hover:text-cyan-400">Home</span>
+              <span class="drop-shadow-lg hover:text-cyan-400">Events</span>
+              <span class="drop-shadow-lg hover:text-cyan-400">Categories</span>
+              <span class="drop-shadow-lg hover:text-cyan-400">Dashboard</span>
+              <button class="p-2 bg-blue-600 rounded-xl text-white">Sign in</button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Stats Grid -->
+    <main class="mt-10 max-w-[1400px] mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Total Task -->
+        <div class="p-2 bg-white shadow-xl rounded-xl">
+          <h2 class="text-gray-500 font-medium mb-2">TODAY'S EVENTS</h2>
+          <div class="flex justify-between items-center">
+            <span class="text-3xl font-semibold mb-1 pl-2">3</span>
+            <div
+              class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Total Task End  -->
+
+        <!-- COMPLETED TASK -->
+        <div class="p-2 bg-white shadow-xl rounded-xl">
+          <h2 class="text-gray-500 font-medium mb-2">TOTAL EVENTS</h2>
+          <div class="flex justify-between items-center">
+            <span class="text-3xl font-semibold mb-1 pl-2">1</span>
+            <div
+              class="h-10 w-10 rounded-full bg-green-100 text-green-600 flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- COMPLETED TASK End  -->
+
+        <!-- TASK IN PROGRESS -->
+        <div class="p-2 bg-white shadow-xl rounded-xl">
+          <h2 class="text-gray-500 font-medium mb-2">UPCOMING EVENTS</h2>
+          <div class="flex justify-between items-center">
+            <span class="text-3xl font-semibold mb-1 pl-2">1</span>
+            <div
+              class="h-10 w-10 rounded-full bg-yellow-100 text-yellow-600 flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- TASK IN PROGRESS End  -->
+
+        <!-- TODOS -->
+        <div class="p-2 bg-white shadow-xl rounded-xl">
+          <h2 class="text-gray-500 font-medium mb-2">PREVIOUS EVENTS</h2>
+          <div class="flex justify-between items-center">
+            <span class="text-3xl font-semibold mb-1 pl-2">3</span>
+            <div
+              class="h-10 w-10 rounded-full bg-purple-100 text-purple-600 flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- TODOS End  -->
+      </div>
+
+      <!-- Task Table  -->
+      <div class="bg-white shadow-sm rounded-xl">
+        <!-- border-b tuotorial e chilo, ami di nai   -->
+        <div class="grid grid-cols-5 p-4 border-gray-100 text-sm text-gray-400 ml-1">
+          <div class="col-span-3">Event Name</div>
+          <div>Date</div>
+          <div class="ml-3">Edit</div>
+        </div>
+
+        <!-- Task Items  -->
+        <div class="divide-y divide-gray-600">
+          <div class="grid grid-cols-5 p-1 md:p-4 lg:p-4 gap-4 items-center">
+
+            <!-- Task Items R1 -->
+            <div class="col-span-3">
+              <span>Event name</span>
+            </div>
+            <div>
+              <span class="text-gray-400 -ml-2">10-10-2025</span>
+            </div>
+            <div>
+              <div class="flex gap-2">
+                <a class="text-green-500" href="">Edit</a>
+                <span>|</span>
+                <a class="text-red-500" href="">Delete</a>
+              </div>
+            </div>
+            <!-- Task Items R2 -->
+            <div class="col-span-3">
+              <span>Event name</span>
+            </div>
+            <div>
+              <span class="text-gray-400 -ml-2">10-10-2025</span>
+            </div>
+            <div>
+              <div class="flex gap-2">
+                <a class="text-green-500" href="">Edit</a>
+                <span>|</span>
+                <a class="text-red-500" href="">Delete</a>
+              </div>
+            </div>
+            <!-- Task Items R3 -->
+            <div class="col-span-3">
+              <span>Event name</span>
+            </div>
+            <div>
+              <span class="text-gray-400 -ml-2">10-10-2025</span>
+            </div>
+            <div>
+              <div class="flex gap-2">
+                <a class="text-green-500" href="">Edit</a>
+                <span>|</span>
+                <a class="text-red-500" href="">Delete</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+      
+    </div>
+    <!-- footer section  -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-6xl mx-auto px-4 grid grid-rows-3 gap-6">
+        <div class="flex flex-wrap gap-6 justify-center">
+          <a href="#" class="hover:underline">About</a>
+          <a href="#" class="hover:underline">Blogs</a>
+          <a href="#" class="hover:underline">Events</a>
+          <a href="#" class="hover:underline">Contact</a>
+          <a href="#" class="hover:underline">Privacy Policy</a>
+        </div>
+
+        <div class="flex flex-wrap gap-6 justify-center">
+          <a href="#" class="hover:underline"
+            ><i class="text-2xl fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" class="hover:underline"
+            ><i class="text-2xl fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" class="hover:underline"
+            ><i class="text-2xl fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" class="hover:underline"
+            ><i class="text-2xl fa-brands fa-linkedin"></i
+          ></a>
+          <a href="#" class="hover:underline"
+            ><i class="text-2xl fa-brands fa-github"></i
+          ></a>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <p class="text-sm text-gray-400">
+            <i class="fa-solid fa-copyright"></i> 2025 Event Management. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+  </footer>
+  </body>
+</html>
