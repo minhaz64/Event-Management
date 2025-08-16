@@ -286,3 +286,4 @@ def organizer_dashboard(request):
         "current_user": current_user,
         "h_page": False,
     })
+
