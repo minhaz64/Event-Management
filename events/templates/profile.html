@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header></header>
+{% extends "template_page.html" %}
+{% load static %}
 
-    <main></main>
+{% block title %}Profile{% endblock title %}
 
-    <footer></footer>
-</body>
-</html>
+{% block main %}
+<main class="container max-w-[1400px] mx-auto px-10 py-10">
+  <div class="bg-slate-200 shadow-lg rounded-xl overflow-hidden mt-8">
+    
+    <div class="flex justify-around w-30 h-30 overflow-hidden">
+      <img class="h-30 w-30 rounded-full" src="{% static 'images/default-profile.png' %}"/>
+    </div>
+
+
+    <div class="p-6 md:p-10">
+      <div class="text-2xl font-bold text-gray-900 mb-4">{{user.name}}</div>
+
+      <div class="flex flex-wrap items-center text-gray-600 mb-6  gap-4">
+        <span>Gender: <strong>{{user.gender}}</strong></span>
+        <span>Date of Birth: <strong>{{user.date_of_birth|date:"d F Y"}}</strong></span>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-xl font-semibold mb-2 block">Contact Information</span>
+        <p class="text-gray-700 leading-relaxed">
+          Email: <strong>{{user.email}}</strong>
+        </p>
+      </div>
+
+      <div class="flex justify-between mb-8 gap-6">
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500" >Member Since</span>
+          <span class="text-lg font-semibold">{{user.created_at|date:"F Y"}}</span>
+        </div class="flex gap-2">
+          <button class="px-6 py-3 bg-cyan-400 text-white rounded-lg hover:bg-cyan-500">Edit Profile</button>
+          <a href="{% url 'signout' %}" class="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600">
+          Sign Out
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</main>
+{% endblock main %}

@@ -1,146 +1,81 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Details</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-    />
-    <style>
-      body {
-        font-family: "inter", "San-serif";
-      }
-    </style>
-  </head>
+{% extends "template_page.html" %}
+{% load static %}
 
-  <body class="relative min-h-screen">
-    <div class="min-h-screen bg-gray-600">
-      <!-- background image  -->
-      <!-- <div class="fixed inset-0 backdrop-blur-sm -z-10 pointer-events-none"></div>
-      <div class="relative"> -->
-      <header>
-        <nav
-          class="relative top-0 left-0 w-full bg-white/[0.4] p-2 text-white font-bold backdrop-blur-md z-50"
-        >
-          <div class="grid grid-cols-5 max-w-[1400px] mx-auto pt-2">
-            <div class="col-span-1 md:col-span-2 lg:col-span-3">
-              <img
-                class="w-12 h-12 rounded-full drop-shadow-xl"
-                src="images/LOGO.png"
-                alt=""
-              />
-            </div>
-            <div
-              class="flex justify-end items-center gap-4 col-span-4 md:col-span-3 lg:col-span-2"
-            >
-              <span class="drop-shadow-lg hover:text-cyan-400">Home</span>
-              <span class="drop-shadow-lg hover:text-cyan-400">Events</span>
-              <span class="drop-shadow-lg hover:text-cyan-400">Categories</span>
-              <span class="drop-shadow-lg hover:text-cyan-400">Dashboard</span>
-              <button class="p-2 bg-blue-600 rounded-xl text-white">
-                Sign in
-              </button>
-            </div>
-          </div>
-        </nav>
-      </header>
+{% block title %}Event Details{% endblock title %}
 
+      {% block main %}
       <main class="container max-w-[1400px] mx-auto px-10 py-10">
         <div class="bg-slate-200 shadow-lg rounded-xl overflow-hidden mt-8">
           <!-- Event image -->
-          <div
-            class="w-full h-64 md:h-96 overflow-hidde rounded-lg flex justify-center"
-          >
-            <img
-              class="h-full object-cover rounded-lg"
-              src="images/defaultImage.jpg"
-              alt=""
-            />
+          <div class="w-full h-64 md:h-96 overflow-hidde rounded-lg flex justify-center">
+            <img class="h-full object-cover rounded-lg" src="{% static 'images/defaultImage.jpg' %}"/>
           </div>
 
-          <!-- Event content  -->
+          <!-- Event section  -->
           <div class="p-6 md:p-10">
             <!-- Event title -->
-            <div class="text-3xl font-bold text-gray-900 mb-4">Event Name</div>
+            <div class="text-3xl font-bold text-gray-900 mb-4"> {{ event.name }}</div>
 
-            <!-- Host info -->
+            <!-- host info -->
             <div class="flex flex-wrap items-center gap-4 text-gray-600 mb-6">
-              <span>Hosted by <strong>John Doe</strong></span>
-              <span>12 August 2025</span>
-              <span>Dhaka, Bangladesh</span>
+              <span>Hosted by <strong>{{ event.host.name }}</strong></span>
+              <span>{{ event.date|date:"d F Y" }} at {{ event.time|time:"H:i" }}</span>
+              <span>{{ event.location }} </span>
+              <span>{{ event.category.name }}</span>
             </div>
 
             <!-- Event Description -->
             <div class="mb-6">
               <span class="text-xl font-semibold mb-2">Event Details</span>
-              <p class="text-gray-700 leading-relaxed">
-                This is a detailed description of the event. It explains what
-                the event is about, who should attend, and what to expect. You
-                can replace this with your actual event description from the
-                database.
+              <p class="text-gray-700 leading-relaxed">{{ event.description }}
               </p>
             </div>
+
+
 
             <div class="flex justify-between gap-6 mb-8">
               <div class="flex items-center gap-2">
                 <span class="text-gray-500">Participants</span>
-                <span class="text-lg font-semibold">50</span>
+                <span class="text-lg font-semibold"> {{ event.participants.count }}</span>
               </div>
-              <button
-                class="px-6 py-3 bg-cyan-400 text-white rounded-lg hover:bg-cyan-500"
-              >
-                Register
-              </button>
+
+            {% if request.session.participant_id %}
+              {% if is_host %}
+                <div class="flex gap-2">
+                  <a class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500" href="{% url 'event_edit' event.id %}">Edit</a>
+                  <a class="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" href="{% url 'event_delete' event.id %}" onclick="return confirm('Delete this event?')">Delete</a>
+                </div>
+              {% else %}
+                {% if user_joined %}
+                  <a class="px-6 py-3 bg-red-400 text-white rounded-lg hover:bg-red-500" href="{% url 'leave_event' event.id %}">Leave Event</a>
+                {% else %}
+                  <a class="px-6 py-3 bg-cyan-400 text-white rounded-lg hover:bg-cyan-500" href="{% url 'join_event' event.id %}">Register</a>
+                {% endif %}
+              {% endif %}
+            {% else %}
+              <p class="text-gray-500 italic">Login to register for this event.</p>
+            {% endif %}
+      
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h2 class="text-lg font-bold mb-4">Participants</h2>
+              {% if event.participants.all %}
+                <ul class="space-y-2">
+                  {% for p in event.participants.all %}
+                    <li class="flex justify-between items-center border-b pb-2">
+                      <span>{{ p.name }} ({{ p.email }})</span>
+                        {% if is_host %}
+                          <a href="{% url 'remove_participant' event.id p.id %}" class= "text-red-500 hover:underline text-sm" onclick="return confirm('Remove this participant?')">Remove</a>
+                        {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <p class="text-gray-500">No participants yet.</p>
+              {% endif %}
             </div>
           </div>
         </div>
       </main>
-    </div>
-    <!-- footer section  -->
-    <footer class="bg-gray-900 text-white py-8">
-      <div class="max-w-6xl mx-auto px-4 grid grid-rows-3 gap-6">
-        <div class="flex flex-wrap gap-6 justify-center">
-          <a href="#" class="hover:underline">About</a>
-          <a href="#" class="hover:underline">Blogs</a>
-          <a href="#" class="hover:underline">Events</a>
-          <a href="#" class="hover:underline">Contact</a>
-          <a href="#" class="hover:underline">Privacy Policy</a>
-        </div>
+      {% endblock main %}
 
-        <div class="flex flex-wrap gap-6 justify-center">
-          <a href="#" class="hover:underline"
-            ><i class="text-2xl fa-brands fa-facebook"></i
-          ></a>
-          <a href="#" class="hover:underline"
-            ><i class="text-2xl fa-brands fa-x-twitter"></i
-          ></a>
-          <a href="#" class="hover:underline"
-            ><i class="text-2xl fa-brands fa-instagram"></i
-          ></a>
-          <a href="#" class="hover:underline"
-            ><i class="text-2xl fa-brands fa-linkedin"></i
-          ></a>
-          <a href="#" class="hover:underline"
-            ><i class="text-2xl fa-brands fa-github"></i
-          ></a>
-        </div>
-
-        <div class="flex justify-center items-center">
-          <p class="text-sm text-gray-400">
-            <i class="fa-solid fa-copyright"></i> 2025 Event Management. All
-            rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
