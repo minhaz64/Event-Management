@@ -1,4 +1,4 @@
 "# Event-Management"
 
-Admin user email: testuser3@gmail.com
-password: testuser3
+Admin user email: admin@gmail.com
+password: 1234
